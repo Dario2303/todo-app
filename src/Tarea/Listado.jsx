@@ -1,20 +1,19 @@
 import React from 'react'
 
-const Listado = ({ToDoList, setRegistro}) => {
+const Listado = ({ToDoList, setRegistro, setCompletos, completos}) => {
     
-  const completado = () => {
-    if (checked) {
-      console.log('confirmado')
-    }
+  const tareaCompleta = () => {
+    console.log('hola')
   }
 
   return (
     <div>
         <ul>
         {ToDoList.map( (reg) => {
-            return(
+
+          return(
             <li className='flex bg-white h-9 content-center'>
-                <input type="checkbox" checked onClick={completado}></input>
+                <input type="checkbox" onChange={e => e.target.checked && tareaCompleta()}></input>
                 <div className='w-full'>{reg}</div>
                 <button className='ml-auto'>X</button>
             </li>

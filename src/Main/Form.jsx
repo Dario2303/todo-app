@@ -1,17 +1,20 @@
 import React, { useState } from 'react'
 import Listado from '../Tarea/Listado'
 
-const Form = ({ ToDoList, setToDoList, setRegistro, registro }) => {
+const Form = ({ ToDoList, setToDoList, setRegistro, registro, setCompletos, completos, guardarTodo }) => {
    
-
     const [newTodo, setNewTodo] = useState('')
 
     const add = () => {
-        setToDoList([...ToDoList, newTodo])
-        setNewTodo('')
+        guardarTodo({newTodo})
     }
 
 
+    const generarId = () => {
+        const random = Math.random().toString(36).substr(2)
+        const fecha = Date.now().toString(36)
+        return random + fecha
+    }
 
   return (
     <div className="max-w-[540px] h-20 z-[1] mt-[-250px] mx-auto border-2 border-black">
@@ -34,7 +37,8 @@ const Form = ({ ToDoList, setToDoList, setRegistro, registro }) => {
                 <Listado
                     ToDoList = {ToDoList}
                     setRegistro = {setRegistro}
-                    registro = {registro}
+                    setCompletos = {setCompletos}
+                    completos= {completos}
                 />
             </ul>
     </div>

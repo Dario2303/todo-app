@@ -7,18 +7,12 @@ import { useState } from 'react'
 function App () {
 
   const [ToDoList, setToDoList] = useState([])
-  const [registro, setRegistro] = useState('')
+  const [registro, setRegistro] = useState({})
   const [completos, setCompletos] = useState([])
 
-  useEffect (() => {
-    ToDoList.map((e) => {
-      if (e === registro) {
-        setCompletos(registro)
-      }
-    })
-
-    
-  }, [registro])
+  const guardarTodo = todo => {
+    setToDoList(...ToDoList, todo)
+  }
 
   return (
     <div className="h-screen relative">
@@ -28,6 +22,9 @@ function App () {
         setToDoList = {setToDoList}
         registro = {registro}
         setRegistro = {setRegistro}
+        setCompletos = {setCompletos}
+        completos = {completos}
+        guardarTodo = {guardarTodo}
       />
     </div>
   )
