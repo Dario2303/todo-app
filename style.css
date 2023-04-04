@@ -1,3 +1,124 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+:root {
+
+--primary-font: 'Josefin Sans', sans-serif;
+--Bright-Blue: hsl(220, 98%, 61%);
+
+/*Light Theme*/
+--light-Very-Light-Gray: hsl(0, 0%, 98%);
+--light-Very-Light-Grayish-Blue: hsl(236, 33%, 92%);
+--Light-Grayish-Blue: hsl(233, 11%, 84%);
+--light-Dark-Grayish-Blue: hsl(236, 9%, 61%);
+--light-Very-Dark-Grayish-Blue: hsl(235, 19%, 35%);
+--light-Bright-Blue: hsl(220, 98%, 61%);
+
+/*dark theme*/
+--dark-Very-Dark-Blue: hsl(235, 21%, 11%);
+--dark-Very-Dark-Desaturated-Blue: hsl(235, 24%, 19%);
+--dark-Light-Grayish-Blue: hsl(234, 39%, 85%);
+--dark-Light-Grayish-Blue-hover: hsl(236, 33%, 92%); /*hover*/
+--Dark-Grayish-Blue: hsl(234, 11%, 52%);
+--dark-Very-Dark-Grayish-Blue: hsl(233, 14%, 35%);
+--dark-Very-Dark-Grayish-Blue: hsl(237, 14%, 26%);
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*, *:before *:after{
+    box-sizing: inherit;
+}
+
+body {
+    font-family: var(--primary-font);
+    font-size: 1.6rem;
+    line-height: 1.5;
+    background-color: var(--light-Very-Light-Gray);
+}
+
+.background {
+    /* background: url(./images/bg-desktop-light.jpg); */
+    background-image: url(./images/bg-desktop-light.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.moon::before {
+    content: '';
+    background-image: url(./images/icon-moon.svg);
+    background-repeat: no-repeat;
+    background-position: 0 17px;
+    background-size: contain;
+    display: block;
+    width: 30px;
+    height: 100%;
+}
+
+h1 {
+    color: var(--light-Very-Light-Gray);
+    font-weight: 700;
+    font-size: 4rem;
+    letter-spacing: 15px;
+}
+
+.item {
+    height: 6.4rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.item :nth-child(2) {
+    width: 100%;
+    height: 6.4rem;
+}
+
+.check {
+    width: 6.4rem;
+    background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+}
+
+.check::before {
+    content: '';
+    background-image: url(./images/icon-check.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.uncheck {
+    width: 6.4rem;
+    background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+}
+
+.uncheck::before {
+    content: '';
+    
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+
+
+
