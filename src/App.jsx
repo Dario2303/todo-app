@@ -5,7 +5,7 @@ import Form from "./Form"
 function App () {
 
   return (
-    <div>
+    <div className="app" data-theme="light">
       <Header/>
       <Form/>
     </div>
