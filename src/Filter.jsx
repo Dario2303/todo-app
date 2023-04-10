@@ -1,6 +1,8 @@
+import { useEffect, useState } from "react";
 
-const Filter = ({tasks}) => {
+const Filter = ({tasks, setFilter}) => {
 
+  
   let total = 0;
 
   tasks.map(e => {
@@ -18,9 +20,9 @@ const Filter = ({tasks}) => {
           <button>Clear Completed</button>
         </div>
       <div className=" hidden sm:block">
-        <button>All</button>
-        <button>Active</button>
-        <button>Completed</button>
+        <button onClick={e => setFilter('all')}>All</button>
+        <button onClick={e => setFilter('active')}>Active</button>
+        <button onClick={e => setFilter('completed')}>Completed</button>
       </div>
     </div>
   )
