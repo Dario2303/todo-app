@@ -14,6 +14,11 @@ const Form = () => {
           <Tasks/>
           <Filter/>
         </div>
+        <div className='item sm:hidden flex justify-center rounded-lg mt-7 sm:m-0 shadow-lg'>
+          <button>All</button>
+          <button>Active</button>
+          <button>Completed</button>
+        </div>
     </div>
   )
 }

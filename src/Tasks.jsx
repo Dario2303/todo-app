@@ -1,10 +1,13 @@
 import React from 'react'
 import Task from './Task'
 
-const Tasks = () => {
+const Tasks = ({tasks, setTasks}) => {
   return (
     <div>
-      <Task/>
+      <Task
+        tasks={tasks}
+        setTasks={setTasks}
+      />
     </div>
   )
 }
