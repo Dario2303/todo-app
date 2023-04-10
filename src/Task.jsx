@@ -31,7 +31,7 @@ const Task = ({task, setChecking}) => {
                 onChange={e => setCompleted(e.target.checked)}
           />
         </div>
-          {Completed ? <p className="line-through">{task.task}</p> : <p>{task.task}</p>}
+          {task.check ? <p className="line-through">{task.task}</p> : <p>{task.task}</p>}
       </div>
   )
 }

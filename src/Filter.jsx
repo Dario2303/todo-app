@@ -1,10 +1,18 @@
-import React from 'react'
 
 const Filter = ({tasks}) => {
+
+  let total = 0;
+
+  tasks.map(e => {
+    if(!e.check) {
+      total+=1
+    }
+  })
+
   return (
     <div className='filter-grid item'>
         <div>
-          <p>{tasks.length} items left</p>
+          {total > 1 ? <p>{total} items left</p> : <p>{total} item left</p>}
         </div>
         <div>
           <button>Clear Completed</button>
