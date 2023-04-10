@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Filter = () => {
+const Filter = ({tasks}) => {
   return (
-    <div className='filter-grid item '>
+    <div className='filter-grid item'>
         <div>
-          <p>5 items left</p>
+          <p>{tasks.length} items left</p>
         </div>
         <div>
           <button>Clear Completed</button>

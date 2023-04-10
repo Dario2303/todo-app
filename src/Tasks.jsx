@@ -1,14 +1,15 @@
 import React from 'react'
 import Task from './Task'
 
-const Tasks = ({tasks, setTasks}) => {
-  return (
-    <div>
+const Tasks = ({tasks, setChecking}) => {
+  return ( 
+    tasks.map( task => (
       <Task
-        tasks={tasks}
-        setTasks={setTasks}
+        task = {task}
+        key={task.id}
+        setChecking={setChecking}
       />
-    </div>
+    ))
   )
 }
 

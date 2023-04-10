@@ -127,8 +127,6 @@ h1 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     text-align: center;
-    background-color: transparent;
-    
 }
 
 .filter-grid :nth-child(3) {

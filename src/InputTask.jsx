@@ -1,33 +1,33 @@
-import { useState } from "react"
+import { useState } from "react";
 
 
-const InputTask = ({tasks, setTasks}) => {
+const InputTask = ({saveNewTask}) => {
 
-  const [inputTask, setInputTask] = useState('')
+  const [inputNewTask, setInputNewTask] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault()
-  }
 
-  const handleClick = () => {
-    if ([inputTask].includes('')){
+    if ([inputNewTask].includes('')){
       console.log('no pueden haber valores vacios')
     }else{
-
-      setTasks([...tasks, inputTask])
+      saveNewTask(inputNewTask)
+      setInputNewTask('');
     }
   }
+
 
   return (
     <div>
       <form className='item rounded-lg overflow-hidden' onSubmit={handleSubmit}>
         <div>
-          <button onClick={handleClick}>X</button>
+          <button type="submit" className="check">X</button>
         </div>
         <input type="text"
               className='input'
-              onChange={e => setInputTask(e.target.value)}
-              value={inputTask}
+              onChange={e => setInputNewTask(e.target.value)}
+              value={inputNewTask}
+              required
         />
       </form>
     </div>
