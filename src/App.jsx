@@ -58,16 +58,15 @@ function App () {
   }
 
   //delete tasks
-
   const deleteTasks = () => {
-    console.log('borrando...')
+    setDeleteModal(true)
   }
 
 
 
   return (
     <div className="app" data-theme="light">
-      <Modal/>
+      {deleteModal && <Modal deleteTasks={deleteTasks}/>}
       <Header/>
       <Form
         checking={checking}
