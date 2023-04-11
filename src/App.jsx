@@ -25,7 +25,7 @@ function App () {
       setFilter('')
     }
   }, [tasks, filter])
-  
+
 
   //random ID generate//
   const IDGenerate = () => {
@@ -54,9 +54,6 @@ function App () {
     const updateTasks = tasks.map(check => check.id === checked.id ? checkTask : check)
     setTasks(updateTasks)
   }
-
-
-  
 
 
 
