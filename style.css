@@ -204,3 +204,14 @@ h1 {
 .button-modal {
     padding: 1rem 2rem;
 }
+
+.line-through-style {
+    transform: scale(0.9);
+    transition-property: transform ;
+    transition-duration: 200ms;
+    transform: scale(0.9);
+}
+
+
+
+

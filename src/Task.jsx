@@ -3,13 +3,16 @@ import { useState } from "react"
 const Task = ({task, checking}) => {
   
   const [animation, setAnimation] = useState(false)
+  const [animationLine, setAnimationLine] = useState(false)
+  let clase = ''
 
   setTimeout(() => {
     setAnimation(true)
   }, 5);
 
+
   return (
-      <div className={`task ${animation && "animation"}`}>
+      <div className={`task ${animation && "animation"} relative`}>
         <div>
         <input type="checkbox"
                 className="check" checked={task.check}
@@ -17,7 +20,7 @@ const Task = ({task, checking}) => {
           /> 
           
         </div>
-          {task.check ? <p className="line-through">{task.task}</p> : <p>{task.task}</p>}
+          {task.check ? <p className="line-through-style">{task.task}</p> : <p>{task.task}</p>}
       </div>
   )
 }
