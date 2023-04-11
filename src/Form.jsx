@@ -4,7 +4,7 @@ import InputTask from './InputTask'
 import Tasks from './Tasks'
 import Filter from './Filter'
 
-const Form = ({saveNewTask, tasks, setTasks, checking, setFilter, filter, tasksFilter}) => {
+const Form = ({saveNewTask, tasks, setTasks, checking, setFilter, filter, tasksFilter, deleteTasks}) => {
   return (
     
     <div className='h-screen w-5/6 max-w-[540px] min-w-[327px] mx-auto mt-[-20rem] sm:mt-[-30rem] pt-12'>
@@ -25,12 +25,13 @@ const Form = ({saveNewTask, tasks, setTasks, checking, setFilter, filter, tasksF
           <Filter
             tasks={tasks}
             setFilter={setFilter}
+            deleteTasks={deleteTasks}
           />
         </div>
         <div className='item sm:hidden flex justify-center rounded-lg mt-7 sm:m-0 shadow-lg'>
-          <button>All</button>
-          <button>Active</button>
-          <button>Completed</button>
+        <button onClick={() => setFilter('all')}>All</button>
+        <button onClick={() => setFilter('active')}>Active</button>
+        <button onClick={() => setFilter('completed')}>Completed</button>
         </div>
     </div>
   )

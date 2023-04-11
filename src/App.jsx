@@ -1,6 +1,7 @@
 import Header from "./Header"
 import Form from "./Form"
 import { useEffect, useState } from "react"
+import Modal from "./Modal"
 
 
 function App () {
@@ -8,6 +9,7 @@ function App () {
   const [tasks, setTasks] = useState([])
   const [filter, setFilter] = useState('')
   const [tasksFilter, setTaskFilter] = useState([])
+  const [deleteModal, setDeleteModal] = useState(false)
   
   //filter
   useEffect(()=> {
@@ -55,10 +57,17 @@ function App () {
     setTasks(updateTasks)
   }
 
+  //delete tasks
+
+  const deleteTasks = () => {
+    console.log('borrando...')
+  }
+
 
 
   return (
     <div className="app" data-theme="light">
+      <Modal/>
       <Header/>
       <Form
         checking={checking}
@@ -68,6 +77,7 @@ function App () {
         setFilter={setFilter}
         tasksFilter={tasksFilter}
         saveNewTask={saveNewTask}
+        deleteTasks={deleteTasks}
       />
     </div>
   )
