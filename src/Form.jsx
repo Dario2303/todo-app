@@ -4,7 +4,7 @@ import InputTask from './InputTask'
 import Tasks from './Tasks'
 import Filter from './Filter'
 
-const Form = ({saveNewTask, tasks, setTasks, setChecking, setFilter, filter, tasksFilter}) => {
+const Form = ({saveNewTask, tasks, setTasks, checking, setFilter, filter, tasksFilter}) => {
   return (
     
     <div className='h-screen w-5/6 max-w-[540px] min-w-[327px] mx-auto mt-[-20rem] sm:mt-[-30rem] pt-12'>
@@ -17,7 +17,7 @@ const Form = ({saveNewTask, tasks, setTasks, setChecking, setFilter, filter, tas
           <Tasks
             tasks={tasks}
             setTasks={setTasks}
-            setChecking={setChecking}
+            checking={checking}
             filter={filter}
             tasksFilter={tasksFilter}
           />

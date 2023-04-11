@@ -6,18 +6,9 @@ import { useEffect, useState } from "react"
 function App () {
 
   const [tasks, setTasks] = useState([])
-  const [checking, setChecking] = useState({})
-  const [tasksCheck, setTasksCheck] = useState([])
   const [filter, setFilter] = useState('')
   const [tasksFilter, setTaskFilter] = useState([])
   
-
-  useEffect(()=>{
-    const EditCheck = tasks.map(task => task.id === checking.id && !task.check ? checking : task)
-    
-    console.log(EditCheck)
-  },[checking])
-
   //random ID generate//
   const IDGenerate = () => {
     const random = Math.random().toString(36).substr(2);
@@ -25,7 +16,7 @@ function App () {
     return random + fecha
   }
 
-  //save new task from input//
+  //save new task from input
   const saveNewTask = (task) => {
     const newTask = {
       task,
@@ -35,33 +26,44 @@ function App () {
     setTasks([...tasks, newTask]);
   }
 
+  //checked action
+  const checking = checked => {
+    const checkTask = {
+      task:checked.task,
+      id:checked.id,
+      check:!checked.check
+    }
+    const updateTasks = tasks.map(check => check.id === checked.id ? checkTask : check)
+    setTasks(updateTasks)
+  }
 
-  //filtrando//
+  //filter
 useEffect(()=> {
 
     if(filter ==='active'){
       const activeFilter = tasks.filter(task => task.check===false)
-      setTaskFilter(activeFilter)
+      setTaskFilter(activeFilter)    
     }
     if(filter === 'completed'){
       const completedFilter = tasks.filter(task => task.check)
       setTaskFilter(completedFilter)
     }
     if(filter === 'all'){
-      setFilter('')
       setTaskFilter([])
+      setFilter('')
     }
 
 }, [filter])
+
 
 
   return (
     <div className="app" data-theme="light">
       <Header/>
       <Form
+        checking={checking}
         tasks = {tasks}
         setTasks= {setTasks}
-        setChecking={setChecking}
         filter={filter}
         setFilter={setFilter}
         tasksFilter={tasksFilter}

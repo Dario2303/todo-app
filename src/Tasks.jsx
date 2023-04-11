@@ -1,7 +1,7 @@
 import React from 'react'
 import Task from './Task'
 
-const Tasks = ({tasks, setChecking, filter, tasksFilter}) => {
+const Tasks = ({tasks, checking, filter, tasksFilter}) => {
   return ( 
   <>
   {filter ? 
@@ -10,7 +10,7 @@ const Tasks = ({tasks, setChecking, filter, tasksFilter}) => {
         <Task
           task = {task}
           key={task.id}
-          setChecking={setChecking}
+          checking={checking}
         />
       ))
     ) : (
@@ -18,7 +18,7 @@ const Tasks = ({tasks, setChecking, filter, tasksFilter}) => {
         <Task
           task = {task}
           key={task.id}
-          setChecking={setChecking}
+          checking={checking}
         />
       ))
     )
