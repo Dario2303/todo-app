@@ -207,9 +207,9 @@ h1 {
 
 .line-through-style {
     text-decoration: line-through;
-    transition-property: all ;
+    transform: scale(0.94);
+    transition-property: all;
     transition-duration: 200ms;
-    transform: scale(0.9);
 }
 
 

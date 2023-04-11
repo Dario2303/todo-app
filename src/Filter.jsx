@@ -13,7 +13,14 @@ const Filter = ({tasks, setFilter, deleteTasks}) => {
   return (
     <div className='filter-grid item'>
         <div>
-          {total > 1 ? <p>{total} items left</p> : <p>{total} item left</p>}
+          {total > 1 ? 
+          <p before={`${total} items left`} 
+              class="before:content-[attr(before)]">
+            </p> 
+              : 
+            <p before={`${total} item left`}
+              class="before:content-[attr(before)]">
+            </p>}
         </div>
         <div>
           <button onClick={() => deleteTasks()}>Clear Completed</button>

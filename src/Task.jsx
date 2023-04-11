@@ -14,10 +14,13 @@ const Task = ({task, checking}) => {
   return (
       <div className={`task ${animation && "animation"} relative`}>
         <div>
-        <input type="checkbox"
-                className="check" checked={task.check}
-                onChange={() => checking(task)}
-          /> 
+        <label htmlFor="">  
+          <input type="checkbox"
+                  className="check" checked={task.check}
+                  onChange={() => checking(task)}
+            />
+            <span>!!</span>
+        </label>
           
         </div>
           {task.check ? <p className="line-through-style">{task.task}</p> : <p>{task.task}</p>}
