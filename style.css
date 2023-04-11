@@ -206,11 +206,12 @@ h1 {
 }
 
 .line-through-style {
-    transform: scale(0.9);
-    transition-property: transform ;
+    text-decoration: line-through;
+    transition-property: all ;
     transition-duration: 200ms;
     transform: scale(0.9);
 }
+
 
 
 
