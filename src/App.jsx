@@ -57,16 +57,31 @@ function App () {
     setTasks(updateTasks)
   }
 
-  //delete tasks
+  //open modal
   const deleteTasks = () => {
     setDeleteModal(true)
   }
 
+  //clear complete tasks
+  const cleanComplete = e => {
+    if(e === 'delete'){
+      const cleanTasks = tasks.filter(task => !task.check && task)
+      setTasks(cleanTasks)
+      setDeleteModal(false)
+      return;
+    }else{
+      setDeleteModal(false)
+    }
+  }
+
+  
 
 
   return (
     <div className="app" data-theme="light">
-      {deleteModal && <Modal deleteTasks={deleteTasks}/>}
+      {deleteModal && <Modal
+      cleanComplete={cleanComplete}
+      />}
       <Header/>
       <Form
         checking={checking}

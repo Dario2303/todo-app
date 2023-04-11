@@ -157,7 +157,7 @@ h1 {
 
 .modal {
     background-color: white;
-    width: 40%;
+    width: 85%;
     height: 28%;
     margin: 20vh auto;
     text-align: center;
@@ -166,8 +166,22 @@ h1 {
     align-items: center;
 }
 
+@media (min-width: 376px) { 
+    .modal {
+        width: 40%;
+        height: 28%;
+    }
+}
+
 .modal p {
-    font-size: larger;
+    font-size:large;
+}
+
+@media (min-width: 376px) { 
+    .modal p {
+        font-size:x-large;
+        padding: 0 3rem;
+    }
 }
 
 .button-modal {
