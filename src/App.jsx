@@ -9,6 +9,24 @@ function App () {
   const [filter, setFilter] = useState('')
   const [tasksFilter, setTaskFilter] = useState([])
   
+  //filter
+  useEffect(()=> {
+
+    if(filter ==='active'){
+      const activeFilter = tasks.filter(task => task.check===false)
+      setTaskFilter(activeFilter)    
+    }
+    if(filter === 'completed'){
+      const completedFilter = tasks.filter(task => task.check)
+      setTaskFilter(completedFilter)
+    }
+    if(filter === 'all'){
+      setTaskFilter([])
+      setFilter('')
+    }
+  }, [tasks, filter])
+  
+
   //random ID generate//
   const IDGenerate = () => {
     const random = Math.random().toString(36).substr(2);
@@ -37,23 +55,8 @@ function App () {
     setTasks(updateTasks)
   }
 
-  //filter
-useEffect(()=> {
 
-    if(filter ==='active'){
-      const activeFilter = tasks.filter(task => task.check===false)
-      setTaskFilter(activeFilter)    
-    }
-    if(filter === 'completed'){
-      const completedFilter = tasks.filter(task => task.check)
-      setTaskFilter(completedFilter)
-    }
-    if(filter === 'all'){
-      setTaskFilter([])
-      setFilter('')
-    }
-
-}, [filter])
+  
 
 
 
