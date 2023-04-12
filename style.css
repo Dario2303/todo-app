@@ -3,9 +3,7 @@
 @tailwind utilities;
 
 
-
 :root {
-
 --primary-font: 'Josefin Sans', sans-serif;
 
 --items: white;
@@ -16,7 +14,6 @@
 --text-inactive: hsl(236, 9%, 61%);
 --text-task-and-x: hsl(235, 19%, 35%);
 --select-filter: hsl(220, 98%, 61%);
-
 }
 
 [data-theme="dark"] {
@@ -25,8 +22,8 @@
 --background: hsl(235, 21%, 11%);
 --separate-line: hsl(237, 14%, 26%);
 --text-line-through: hsl(233, 14%, 35%);
---text-task-and-x: hsl(234, 39%, 85%);
---filter-hover: hsl(236, 33%, 92%); /*hover*/
+--filter-hover: hsl(234, 39%, 85%);
+--text-task-and-x: hsl(236, 33%, 92%); /*hover*/
 --Dark-Grayish-Blue: hsl(234, 11%, 52%);
 }
 
@@ -45,8 +42,8 @@ body {
     line-height: 1.5;
 }
 
-p {
-    color: var(--filter-hover);
+p{
+    color: var(--text-task-and-x);
 }
 
 h1 {
@@ -60,6 +57,35 @@ h1 {
     h1 {
         font-size: 4rem;
     }
+}
+
+.counter {
+    color: var(--text-inactive);
+}
+
+.unselected-filtro {
+    font-weight: 700;
+    color: var(--text-inactive);
+}
+
+.unselected-filtro:hover {
+    color: var(--text-task-and-x);
+    transition: 300ms color;
+}
+
+.select-filter {
+    color: var(--select-filter);
+    font-weight: 700;
+}
+
+.clear {
+    color: var(--text-inactive);
+}
+
+.clear:hover {
+    color: firebrick;
+    transition-property: all;
+    transition-duration: 300ms;
 }
 
 .app{
@@ -122,36 +148,17 @@ h1 {
     align-items: center;
 }
 
-.input-button::before {
-    content: "";
-    background: url(./images/circle-check-regular.svg);
-    background-size: 2rem;
-    background-repeat: no-repeat;
-    position: relative;
-    top: 1.7rem;
-    left: 1.3rem;
-    width: 3em;
-    height: 3em;
-    display: block;
-    opacity: 0.2;
+.input-button {
+    color: var(--text-inactive);
+    width: 5rem;
 }
 
-.input-button:hover::before {
-    content: "";
-    background: url(./images/circle-check-regular.svg);
-    background-size: 2rem;
-    background-repeat: no-repeat;
-    position: relative;
-    top: 1.7rem;
-    left: 1.3rem;
-    width: 3em;
-    height: 3em;
-    display: block;
-    opacity: 1;
-    transition-property: all;
+.input-button:hover {
+    color : var(--select-filter);
+    transform: scale(1.3);
+    transition: all;
     transition-duration: 300ms;
 }
-
 
 @media (min-width: 376px) { 
     .item {
@@ -253,12 +260,13 @@ h1 {
     width: 100%;
     height: 100%;
     background-color: var(--items);
+    color: var(--text-task-and-x);
 }
 
 .filter-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    text-align: center;
+    
 }
 
 .filter-grid :nth-child(3) {
@@ -268,7 +276,7 @@ h1 {
 @media (min-width: 376px) { 
     .filter-grid{
         row-gap: 0;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 1fr 2fr 1fr;
     }
     
     .filter-grid :nth-child(3) {
