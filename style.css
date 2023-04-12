@@ -9,6 +9,7 @@
 --primary-font: 'Josefin Sans', sans-serif;
 
 --items: white;
+--background-image: url(./images/bg-desktop-light.jpg);
 --background: hsl(0, 0%, 98%);
 --separate-line: hsl(236, 33%, 92%);
 --text-line-through: hsl(233, 11%, 84%);
@@ -19,13 +20,14 @@
 }
 
 [data-theme="dark"] {
---background: hsl(235, 21%, 11%);
 --items: hsl(235, 24%, 19%);
+--background-image: url(./images/bg-desktop-dark.jpg);
+--background: hsl(235, 21%, 11%);
+--separate-line: hsl(237, 14%, 26%);
+--text-line-through: hsl(233, 14%, 35%);
 --text-task-and-x: hsl(234, 39%, 85%);
 --filter-hover: hsl(236, 33%, 92%); /*hover*/
 --Dark-Grayish-Blue: hsl(234, 11%, 52%);
---dark-Very-Dark-Grayish-Blue: hsl(233, 14%, 35%);
---separate-line: hsl(237, 14%, 26%);
 }
 
 html {
@@ -47,37 +49,6 @@ p {
     color: var(--filter-hover);
 }
 
-.app{
-    background-color: var(--background);
-    transition: all;
-    transition-duration: 300ms;
-}
-
-.light + h1{
-    font-size: 20rem;
-}
-
-.background {
-    /* background: url(./images/bg-desktop-light.jpg); */
-    background-image: url(./images/bg-desktop-light.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
-
-.moon::before {
-    content: '';
-    background-image: url(./images/icon-moon.svg);
-    background-repeat: no-repeat;
-    background-position: 0px;
-    background-size: contain;
-    display: block;
-    width: 30px;
-    height: 100%;
-    transform: scale(0.8);
-}
-
 h1 {
     color: white;
     font-weight: 700;
@@ -91,13 +62,94 @@ h1 {
     }
 }
 
+.app{
+    background-color: var(--background);
+    transition: all;
+    transition-duration: 300ms;
+}
+
+.background {
+    background-image: var(--background-image);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+/*light/dark*/
+.moon::before {
+    content: '';
+    background-image: url(./images/icon-moon.svg);
+    background-repeat: no-repeat;
+    background-position: 0px;
+    background-size: contain;
+    display: block;
+    width: 23px;
+    height: 100%;
+    transform: scale(0.8);
+}
+
+@media (min-width: 376px) { 
+    .moon::before {
+        width: 30px;
+    }
+}
+
+.sun::before {
+    content: '';
+    background-image: url(./images/icon-sun.svg);
+    background-repeat: no-repeat;
+    background-position: 0px;
+    background-size: contain;
+    display: block;
+    width: 23px;
+    height: 100%;
+    transform: scale(0.8);
+}
+
+@media (min-width: 376px) { 
+    .sun::before {
+        width: 30px;
+    }
+}
+
 .item {
-    background-color: white;
+    background-color: var(--items);
     height: 4.8rem;
     transition-property: height;
     transition-duration: 300ms;
     display: flex;
     align-items: center;
+}
+
+.input-button::before {
+    content: "";
+    background: url(./images/circle-check-regular.svg);
+    background-size: 2rem;
+    background-repeat: no-repeat;
+    position: relative;
+    top: 1.7rem;
+    left: 1.3rem;
+    width: 3em;
+    height: 3em;
+    display: block;
+    opacity: 0.2;
+}
+
+.input-button:hover::before {
+    content: "";
+    background: url(./images/circle-check-regular.svg);
+    background-size: 2rem;
+    background-repeat: no-repeat;
+    position: relative;
+    top: 1.7rem;
+    left: 1.3rem;
+    width: 3em;
+    height: 3em;
+    display: block;
+    opacity: 1;
+    transition-property: all;
+    transition-duration: 300ms;
 }
 
 
@@ -111,7 +163,7 @@ h1 {
     display: none;
 }
 
-/*check style*/
+/*TASK*/
 .check-unabled {
     display: inline-block;
     position: relative;
@@ -131,7 +183,7 @@ h1 {
 .task:hover .check-unabled::before {
     content: "";
     display: block;
-    background-color: white;
+    background-color: var(--items);
     position: relative;
     top: 0.1em;
     left: 0.1em;
@@ -184,7 +236,7 @@ h1 {
 .task {
     cursor: pointer;
     border-bottom: 2px solid var(--separate-line);
-    background-color: white;
+    background-color: var(--items);
     height: 0;
     overflow: hidden;
     transition-property: height;
@@ -194,12 +246,13 @@ h1 {
 }
 
 .task.animation {
-    height: 4.8rem;
+    height: 6rem;
 }
 
 .input {
     width: 100%;
     height: 100%;
+    background-color: var(--items);
 }
 
 .filter-grid {
@@ -234,7 +287,7 @@ h1 {
 }
 
 .modal {
-    background-color: white;
+    background-color: var(--items);
     width: 85%;
     height: 28%;
     margin: 20vh auto;
@@ -243,6 +296,7 @@ h1 {
     gap: 2rem;
     align-items: center;
     font-size: small;
+    overflow:hidden;
 }
 
 @media (min-width: 376px) { 
@@ -268,6 +322,7 @@ h1 {
 
 .line-through-style {
     text-decoration: line-through;
+    color: var(--text-line-through);
     transform: scale(0.94);
     transition-property: all;
     transition-duration: 200ms;

@@ -17,8 +17,13 @@ const Task = ({task, checking, deleteSelect}) => {
             <span className={!task.check ? "check-unabled" : "check-disable"} onClick={() => checking(task)}></span>
         </label>
         </div>
-          <div onClick={() => checking(task)} className="w-4/5">{task.check ? <p className="line-through-style block">{task.task}</p> : <p>{task.task}</p>}</div>
-          <div className="ml-auto mr-8 cross"><img src={cross} alt="cross" onClick={() => deleteSelect(task)}/></div>
+          <div onClick={() => checking(task)}
+                className="w-4/5">
+                {task.check ? <p className="line-through-style block">{task.task}</p> : <p>{task.task}</p>}
+          </div>
+          <div className="ml-auto mr-8 cross">
+              <img src={cross} alt="cross" onClick={() => deleteSelect(task)}/>
+          </div>
       </div>
   )
 }

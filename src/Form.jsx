@@ -4,11 +4,14 @@ import InputTask from './InputTask'
 import Tasks from './Tasks'
 import Filter from './Filter'
 
-const Form = ({saveNewTask, tasks, setTasks, checking, setFilter, filter, tasksFilter, deleteTasks, deleteSelect}) => {
+const Form = ({saveNewTask, tasks, setTasks, checking, setFilter, filter, tasksFilter, deleteTasks, deleteSelect, screenMode, setScreenMode}) => {
   return (
     
-    <div className='h-screen w-5/6 max-w-[540px] min-w-[327px] mx-auto mt-[-20rem] sm:mt-[-30rem] pt-12'>
-        <HeaderForm/>
+    <div className='h-screen w-5/6 max-w-[540px] min-w-[327px] mx-auto mt-[-16rem] sm:mt-[-23rem]'>
+        <HeaderForm
+        screenMode={screenMode}
+        setScreenMode={setScreenMode}
+        />
         <InputTask
         saveNewTask={saveNewTask}
         />

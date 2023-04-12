@@ -10,7 +10,8 @@ function App () {
   const [filter, setFilter] = useState('')
   const [tasksFilter, setTaskFilter] = useState([])
   const [deleteModal, setDeleteModal] = useState(false)
-  
+  const [screenMode, setScreenMode] = useState(false)
+
   //filter
   useEffect(()=> {
 
@@ -79,14 +80,17 @@ function App () {
     const deleteSelected = tasks.filter(task => task.id !== e.id && task)
     setTasks(deleteSelected)
   }
+  
 
   return (
-    <div className="app" data-theme="light">
+    <div className="app" data-theme={screenMode ? "light" : "dark"}>
       {deleteModal && <Modal
       cleanComplete={cleanComplete}
       />}
       <Header/>
       <Form
+        screenMode={screenMode}
+        setScreenMode={setScreenMode}
         checking={checking}
         tasks = {tasks}
         setTasks= {setTasks}

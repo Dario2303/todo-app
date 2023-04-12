@@ -8,23 +8,21 @@ const InputTask = ({saveNewTask}) => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    if ([inputNewTask].includes('')){
-      console.log('no pueden haber valores vacios')
-    }else{
-      saveNewTask(inputNewTask)
-      setInputNewTask('');
-    }
+    saveNewTask(inputNewTask)
+    setInputNewTask('');
+
   }
 
 
   return (
-    <div>
+    <div className="sm:mb-10 mb-7">
       <form className='item rounded-lg overflow-hidden' onSubmit={handleSubmit}>
         <div>
-          <button type="submit" className="check">X</button>
+          <button type="submit" className="input-button"></button>
         </div>
         <input type="text"
               className='input'
+              placeholder="Create a new todo..."
               onChange={e => setInputNewTask(e.target.value)}
               value={inputNewTask}
               required
