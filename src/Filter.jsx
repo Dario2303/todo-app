@@ -24,7 +24,7 @@ const Filter = ({tasks, setFilter, deleteTasks, filter}) => {
         <div className="text-right">
           <button onClick={() => deleteTasks()} className="clear">Clear Completed</button>
         </div>
-      <div className=" hidden sm:block sm:flex sm:justify-evenly mx-8">
+      <div className=" hidden sm:flex sm:justify-evenly mx-8">
         <button onClick={() => setFilter('all')} className={filter === '' ? "select-filter" : "unselected-filtro"}>All</button>
         <button onClick={() => setFilter('active')} className={filter === 'active' ? "select-filter" : "unselected-filtro"}>Active</button>
         <button onClick={() => setFilter('completed')} className={filter === 'completed' ? "select-filter" : "unselected-filtro"}>Completed</button>
