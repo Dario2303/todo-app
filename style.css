@@ -167,6 +167,16 @@ h1 {
     background-repeat: no-repeat;
 }
 
+.cross {
+    transform: scale(0);
+}
+
+.task:hover .cross {
+    transform: scale(1);
+    transition-property: transform;
+    transition-duration: 300ms;
+}
+
 .check-style {
     font-size: 1rem;
 }
@@ -213,7 +223,6 @@ h1 {
         grid-row: 1 / 2;
     }
 }
-
 
 .modal-background {
     background-color: rgb(0 0 0 /0.8);

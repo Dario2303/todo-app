@@ -1,7 +1,7 @@
 import React from 'react'
 import Task from './Task'
 
-const Tasks = ({tasks, checking, filter, tasksFilter}) => {
+const Tasks = ({tasks, checking, filter, tasksFilter, deleteSelect}) => {
   return ( 
   <>
   {filter ? 
@@ -11,6 +11,7 @@ const Tasks = ({tasks, checking, filter, tasksFilter}) => {
           task = {task}
           key={task.id}
           checking={checking}
+          deleteSelect={deleteSelect}
         />
       ))
     ) : (
@@ -19,6 +20,7 @@ const Tasks = ({tasks, checking, filter, tasksFilter}) => {
           task = {task}
           key={task.id}
           checking={checking}
+          deleteSelect={deleteSelect}
         />
       ))
     )

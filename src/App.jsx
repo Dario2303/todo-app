@@ -74,8 +74,11 @@ function App () {
     }
   }
 
-  
-
+  //delete select task
+  const deleteSelect = (e) => {
+    const deleteSelected = tasks.filter(task => task.id !== e.id && task)
+    setTasks(deleteSelected)
+  }
 
   return (
     <div className="app" data-theme="light">
@@ -92,6 +95,7 @@ function App () {
         tasksFilter={tasksFilter}
         saveNewTask={saveNewTask}
         deleteTasks={deleteTasks}
+        deleteSelect={deleteSelect}
       />
     </div>
   )
