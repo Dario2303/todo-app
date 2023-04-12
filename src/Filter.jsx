@@ -15,11 +15,11 @@ const Filter = ({tasks, setFilter, deleteTasks}) => {
         <div>
           {total > 1 ? 
           <p before={`${total} items left`} 
-              class="before:content-[attr(before)]">
+              className="before:content-[attr(before)]">
             </p> 
               : 
             <p before={`${total} item left`}
-              class="before:content-[attr(before)]">
+              className="before:content-[attr(before)]">
             </p>}
         </div>
         <div>
